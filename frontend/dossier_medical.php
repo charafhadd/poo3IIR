@@ -472,8 +472,11 @@ $dossiers = fichierMedical::selectAllFichiers(
     </button>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Scripts JavaScript personnalisés -->
+    <script src="js/main.js"></script>
+    <script src="js/dossier-medical.js"></script>
     <script>
-        // Toggle between views
+        // Fonctions de base conservées pour compatibilité
         function showView(view) {
             document.getElementById('cardsView').style.display = 'none';
             document.getElementById('timelineView').style.display = 'none';
@@ -488,10 +491,9 @@ $dossiers = fichierMedical::selectAllFichiers(
             }
         }
 
-        // Filter dossiers
         function filterDossiers() {
-            const medecinFilter = document.getElementById('filterMedecin').value;
-            const yearFilter = document.getElementById('filterYear').value;
+            const medecinFilter = document.getElementById('filterMedecin')?.value || '';
+            const yearFilter = document.getElementById('filterYear')?.value || '';
             const items = document.querySelectorAll('.dossier-item');
             
             items.forEach(item => {
@@ -507,23 +509,6 @@ $dossiers = fichierMedical::selectAllFichiers(
                     item.style.display = 'none';
                 }
             });
-        }
-
-        // View details
-        function viewDetails(id) {
-            alert('Fonctionnalité de détails - ID: ' + id);
-            // Vous pouvez créer une modal ou rediriger vers une page de détails
-        }
-
-        // Print specific dossier
-        function printDossier(id) {
-            window.print();
-        }
-
-        // Export to PDF
-        function exportToPDF() {
-            alert('Fonctionnalité d\'export PDF à implémenter');
-            // Vous pouvez utiliser jsPDF ou une bibliothèque similaire
         }
     </script>
 </body>
